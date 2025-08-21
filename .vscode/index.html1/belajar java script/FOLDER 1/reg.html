@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Premium Indonesia</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=modern%2520luxurious%2520living%2520room%2520with%2520elegant%2520furniture%2C%2520large%2520windows%2C%2520natural%2520light%2C%2520minimalist%2520design%2C%2520wooden%2520coffee%2520table%2C%2520comfortable%2520sofa%2C%2520indoor%2520plants%2C%2520neutral%2520color%2520palette%2C%2520spacious%2520and%2520airy%2C%2520high-end%2520interior%2520design%2C%2520clean%2520lines%2C%2520sophisticated%2520atmosphere&width=1920&height=1080&seq=12345&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Beranda</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Produk</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Tentang Kami</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Kontak</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-search-line ri-xl text-gray-700"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-shopping-cart-line ri-xl text-gray-700"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center md:hidden">
+                    <i class="ri-menu-line ri-xl text-gray-700"></i>
+                </div>
+                <a href="#" class="hidden md:block bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Masuk</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section w-full h-[600px] relative">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Furniture Premium untuk Rumah Impian Anda</h1>
+                <p class="text-lg text-white mb-8">Temukan koleksi furniture berkualitas tinggi yang akan mengubah ruangan Anda menjadi lebih elegan dan nyaman.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Belanja Sekarang</a>
+                    <a href="#" class="bg-white text-gray-800 px-8 py-3 !rounded-button hover:bg-gray-100 transition whitespace-nowrap">Lihat Koleksi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Unggulan -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Kategori Unggulan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded shadow-md overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%2520living%2520room%2520with%2520elegant%2520sofa%2C%2520coffee%2520table%2C%2520stylish%2520decor%2C%2520neutral%2520colors%2C%2520minimalist%2520design%2C%2520comfortable%2520seating%2520arrangement%2C%2520decorative%2520pillows%2C%2520indoor%2520plants%2C%2520clean%2520aesthetic%2C%2520bright%2520space&width=600&height=400&seq=12346&orientation=landscape" alt="Ruang Tamu" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Ruang Tamu</h3>
+                        <p class="text-gray-600 mb-4">Koleksi sofa, meja, dan aksesori untuk ruang tamu yang nyaman dan elegan.</p>
+                        <a href="#" class="text-primary font-medium flex items-center">
+                            Lihat Koleksi
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded shadow-md overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=elegant%2520dining%2520room%2520with%2520wooden%2520table%2C%2520comfortable%2520chairs%2C%2520pendant%2520lighting%2C%2520minimalist%2520design%2C%2520neutral%2520colors%2C%2520table%2520setting%2C%2520decorative%2520elements%2C%2520spacious%2520layout%2C%2520bright%2520atmosphere%2C%2520modern%2520aesthetic&width=600&height=400&seq=12347&orientation=landscape" alt="Ruang Makan" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Ruang Makan</h3>
+                        <p class="text-gray-600 mb-4">Meja makan, kursi, dan perlengkapan untuk momen bersantap yang berkesan.</p>
+                        <a href="#" class="text-primary font-medium flex items-center">
+                            Lihat Koleksi
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded shadow-md overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%2520bedroom%2520with%2520comfortable%2520bed%2C%2520bedside%2520tables%2C%2520soft%2520lighting%2C%2520minimalist%2520design%2C%2520neutral%2520colors%2C%2520plush%2520bedding%2C%2520decorative%2520pillows%2C%2520clean%2520aesthetic%2C%2520bright%2520space%2C%2520elegant%2520furniture&width=600&height=400&seq=12348&orientation=landscape" alt="Kamar Tidur" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Kamar Tidur</h3>
+                        <p class="text-gray-600 mb-4">Tempat tidur, lemari, dan perlengkapan untuk kamar tidur yang nyaman.</p>
+                        <a href="#" class="text-primary font-medium flex items-center">
+                            Lihat Koleksi
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Terbaru -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Produk Terbaru</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded shadow-sm overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=elegant%2520wooden%2520coffee%2520table%2520with%2520minimalist%2520design%2C%2520clean%2520lines%2C%2520natural%2520wood%2520finish%2C%2520modern%2520style%2C%2520in%2520a%2520bright%2520setting%2C%2520simple%2520background%2C%2520product%2520photography%2C%2520high-quality%2520furniture&width=500&height=500&seq=12349&orientation=squarish" alt="Sofa Modern" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Meja Kopi Oslo</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-gray-900 font-bold">Rp 2.450.000</p>
+                            <div class="flex space-x-2">
+                                <div class="w-8 h-8 flex items-center justify-center text-yellow-500">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-gray-700">4.8</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded shadow-sm overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%2520dining%2520chair%2520with%2520wooden%2520legs%2C%2520comfortable%2520upholstery%2C%2520minimalist%2520design%2C%2520neutral%2520color%2C%2520elegant%2520shape%2C%2520in%2520a%2520bright%2520setting%2C%2520simple%2520background%2C%2520product%2520photography%2C%2520high-quality%2520furniture&width=500&height=500&seq=12350&orientation=squarish" alt="Kursi Makan" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Kursi Makan Elise</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-gray-900 font-bold">Rp 1.250.000</p>
+                            <div class="flex space-x-2">
+                                <div class="w-8 h-8 flex items-center justify-center text-yellow-500">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-gray-700">4.7</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded shadow-sm overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%2520bedside%2520table%2520with%2520drawer%2C%2520wooden%2520finish%2C%2520minimalist%2520design%2C%2520clean%2520lines%2C%2520elegant%2520shape%2C%2520in%2520a%2520bright%2520setting%2C%2520simple%2520background%2C%2520product%2520photography%2C%2520high-quality%2520furniture&width=500&height=500&seq=12351&orientation=squarish" alt="Meja Samping" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Meja Samping Luna</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-gray-900 font-bold">Rp 875.000</p>
+                            <div class="flex space-x-2">
+                                <div class="w-8 h-8 flex items-center justify-center text-yellow-500">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-gray-700">4.9</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded shadow-sm overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%2520floor%2520lamp%2520with%2520elegant%2520design%2C%2520metal%2520finish%2C%2520minimalist%2520style%2C%2520adjustable%2520head%2C%2520in%2520a%2520bright%2520setting%2C%2520simple%2520background%2C%2520product%2520photography%2C%2520high-quality%2520lighting%2520furniture&width=500&height=500&seq=12352&orientation=squarish" alt="Lampu Lantai" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Lampu Lantai Halo</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-gray-900 font-bold">Rp 1.350.000</p>
+                            <div class="flex space-x-2">
+                                <div class="w-8 h-8 flex items-center justify-center text-yellow-500">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-gray-700">4.6</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Layanan -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded shadow-sm text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary">
+                        <i class="ri-truck-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Pengiriman Gratis</h3>
+                    <p class="text-gray-600">Gratis pengiriman untuk pembelian di atas Rp 2.000.000</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded shadow-sm text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary">
+                        <i class="ri-shield-check-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Garansi 2 Tahun</h3>
+                    <p class="text-gray-600">Semua produk kami dilengkapi dengan garansi resmi</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded shadow-sm text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary">
+                        <i class="ri-customer-service-2-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Layanan 24 Jam</h3>
+                    <p class="text-gray-600">Tim dukungan kami siap membantu Anda kapan saja</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded shadow-sm text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary">
+                        <i class="ri-exchange-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Mudah Dikembalikan</h3>
+                    <p class="text-gray-600">Kebijakan pengembalian 30 hari tanpa pertanyaan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Berlangganan Diskon</h2>
+                <p class="text-gray-600 mb-8">Dapatkan informasi terbaru tentang produk dan promo spesial kami langsung ke email Anda.</p>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Alamat Email Anda" class="flex-1 px-4 py-3 border border-gray-300 rounded focus:border-primary">
+                    <button class="bg-primary text-white px-6 py-3 !rounded-button hover:bg-blue-600 transition whitespace-nowrap">Berlangganan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 inline-block">logo</a>
+                    <p class="text-gray-400 mb-4">Menyediakan furniture premium berkualitas tinggi untuk rumah impian Anda sejak 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kategori</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ruang Tamu</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ruang Makan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kamar Tidur</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ruang Kerja</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Dekorasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Informasi</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kontak</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="w-6 h-6 mr-3 flex-shrink-0 flex items-center justify-center text-primary">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">Jl. Furniture No. 123, Jakarta Selatan, Indonesia</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-6 h-6 mr-3 flex-shrink-0 flex items-center justify-center text-primary">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+62 21 1234 5678</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-6 h-6 mr-3 flex-shrink-0 flex items-center justify-center text-primary">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@furniturepremium.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Furniture Premium Indonesia. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.ri-menu-line').parentElement;
+            const nav = document.querySelector('nav');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                nav.classList.toggle('hidden');
+                nav.classList.toggle('flex');
+                nav.classList.toggle('flex-col');
+                nav.classList.toggle('absolute');
+                nav.classList.toggle('top-16');
+                nav.classList.toggle('right-4');
+                nav.classList.toggle('bg-white');
+                nav.classList.toggle('shadow-lg');
+                nav.classList.toggle('p-4');
+                nav.classList.toggle('rounded');
+                nav.classList.toggle('w-48');
+                nav.classList.toggle('space-y-4');
+                nav.classList.toggle('space-x-0');
+                nav.classList.toggle('space-x-8');
+            });
+        });
+    </script>
+</body>
+</html>

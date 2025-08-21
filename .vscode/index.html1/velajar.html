@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="stylee.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head><script>
+    var dialog = prompt("Silahkan masukkan nama :")
+    document.getElementById("name").value = dialog;
+</script>
+<body>
+     <script>
+        var dialog = prompt("Silahkan massukkan nama :")
+    </script>
+    <div class="container">
+        <h1>Form Submission</h1>
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Address:</label>
+                <input type="text" id="alamat" required>
+            </div>
+            <div class="form-group">
+                <label for="sekolah">School:</label>
+                <input type="text" id="sekolah" required>
+            </div>
+            <div class="form-group">
+                <label for="countrysubject">Country:</label>
+                <select id="countrysubject" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Brunei">Brunei</option>
+                    <option value="Australia">Australia</option>
+                    <option value="New Zealand">New Zealand</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="function.js"></script>
+</body>
+</html>

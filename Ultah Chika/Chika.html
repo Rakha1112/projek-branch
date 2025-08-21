@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#FF6B6B", secondary: "#4ECDC4" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+      }
+      @keyframes glow {
+      0% { filter: drop-shadow(0 0 5px rgba(255, 223, 0, 0.7)); }
+      50% { filter: drop-shadow(0 0 20px rgba(255, 223, 0, 0.9)); }
+      100% { filter: drop-shadow(0 0 5px rgba(255, 223, 0, 0.7)); }
+      }
+      @keyframes flame {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
+      }
+      @keyframes confetti-fall {
+      0% { transform: translateY(-100vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+      }
+      @keyframes confetti-sway {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(50px); }
+      100% { transform: translateX(0); }
+      }
+      .cake {
+      animation: float 6s ease-in-out infinite;
+      }
+      .flame {
+      animation: flame 1s ease-in-out infinite, glow 1.5s ease-in-out infinite;
+      }
+      .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: var(--color);
+      opacity: 0;
+      z-index: 1000;
+      animation: confetti-fall var(--fall-duration) linear forwards, confetti-sway var(--sway-duration) ease-in-out infinite alternate;
+      }
+      .gallery-img {
+      transition: all 0.3s ease;
+      }
+      .gallery-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .parallax-container {
+      perspective: 1px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      }
+      .parallax-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      }
+      .parallax-back {
+      transform: translateZ(-1px) scale(2);
+      }
+      .parallax-base {
+      transform: translateZ(0);
+      }
+    </style>
+  </head>
+  <body
+    class="font-['Poppins'] bg-gradient-to-b from-pink-50 to-blue-50 min-h-screen overflow-x-hidden"
+  >
+    <div
+      id="home-page"
+      class="min-h-screen flex flex-col items-center justify-center relative px-4 py-12"
+    >
+      <!-- Background Decorations -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          class="absolute top-10 left-10 w-16 h-16 bg-pink-200 rounded-full opacity-60"
+        ></div>
+        <div
+          class="absolute top-20 right-20 w-20 h-20 bg-blue-200 rounded-full opacity-50"
+        ></div>
+        <div
+          class="absolute bottom-20 left-1/4 w-12 h-12 bg-yellow-200 rounded-full opacity-70"
+        ></div>
+        <div
+          class="absolute top-1/3 right-1/3 w-10 h-10 bg-purple-200 rounded-full opacity-60"
+        ></div>
+        <div
+          class="absolute bottom-40 right-40 w-14 h-14 bg-green-200 rounded-full opacity-50"
+        ></div>
+      </div>
+      <!-- Cake Animation -->
+      <div class="cake relative mb-10 mt-4">
+        <div class="relative w-64 h-64 mx-auto">
+          <!-- Cake Base -->
+          <div
+            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-56 h-24 bg-pink-300 rounded-lg"
+          ></div>
+          <div
+            class="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-48 h-20 bg-pink-400 rounded-lg"
+          ></div>
+          <div
+            class="absolute bottom-44 left-1/2 transform -translate-x-1/2 w-40 h-16 bg-pink-500 rounded-lg"
+          ></div>
+          <!-- Cake Decorations -->
+          <div
+            class="absolute bottom-5 left-1/4 w-4 h-4 bg-yellow-300 rounded-full"
+          ></div>
+          <div
+            class="absolute bottom-5 right-1/4 w-4 h-4 bg-yellow-300 rounded-full"
+          ></div>
+          <div
+            class="absolute bottom-15 left-1/3 w-4 h-4 bg-blue-300 rounded-full"
+          ></div>
+          <div
+            class="absolute bottom-15 right-1/3 w-4 h-4 bg-blue-300 rounded-full"
+          ></div>
+          <div
+            class="absolute bottom-35 left-1/4 w-4 h-4 bg-green-300 rounded-full"
+          ></div>
+          <div
+            class="absolute bottom-35 right-1/4 w-4 h-4 bg-green-300 rounded-full"
+          ></div>
+          <!-- Candles -->
+          <div
+            class="absolute bottom-60 left-1/2 transform -translate-x-1/2 w-2 h-10 bg-white rounded-sm"
+          ></div>
+          <div
+            class="flame absolute bottom-70 left-1/2 transform -translate-x-1/2 w-6 h-8 bg-yellow-500 rounded-full filter"
+          ></div>
+          <div
+            class="absolute bottom-60 left-1/3 transform -translate-x-1/2 w-2 h-8 bg-white rounded-sm"
+          ></div>
+          <div
+            class="flame absolute bottom-68 left-1/3 transform -translate-x-1/2 w-5 h-7 bg-yellow-500 rounded-full filter"
+          ></div>
+          <div
+            class="absolute bottom-60 right-1/3 transform translate-x-1/2 w-2 h-8 bg-white rounded-sm"
+          ></div>
+          <div
+            class="flame absolute bottom-68 right-1/3 transform translate-x-1/2 w-5 h-7 bg-yellow-500 rounded-full filter"
+          ></div>
+        </div>
+      </div>
+      <!-- Birthday Text -->
+      <h1
+        class="text-6xl md:text-7xl font-['Dancing_Script'] font-bold text-primary mb-6 text-center"
+      >
+        Selamat Ulang Tahun!
+      </h1>
+      <!-- Personal Message -->
+      <div class="max-w-2xl text-center mb-10 px-4">
+        <p class="text-xl md:text-2xl text-gray-700 mb-6">
+          Di hari spesialmu ini, semoga semua harapan dan impianmu menjadi
+          kenyataan. Terima kasih telah menjadi bagian penting dalam perjalanan
+          hidup ini.
+        </p>
+        <p class="text-lg md:text-xl text-gray-600">
+          Semoga tahun barumu dipenuhi dengan kebahagiaan, kesehatan, dan
+          kesuksesan!
+        </p>
+      </div>
+      <!-- Button -->
+      <button
+        id="view-memories-btn"
+        class="bg-primary hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-button text-lg transition-all duration-300 transform hover:scale-105 flex items-center !rounded-button whitespace-nowrap"
+      >
+        <span>Lihat Kenangan</span>
+        <div class="w-6 h-6 ml-2 flex items-center justify-center">
+          <i class="ri-arrow-right-line"></i>
+        </div>
+      </button>
+    </div>
+    <div
+      id="memories-page"
+      class="hidden min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 py-16 px-4"
+    >
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-5xl font-['Dancing_Script'] font-bold text-primary mb-2 text-center animate-fade-in"
+        >
+          Kenangan Indah Kita
+        </h2>
+        <p class="text-xl text-gray-600 text-center mb-8">
+          Beberapa momen berharga yang telah kita lalui bersama
+        </p>
+        <div class="mb-16 relative overflow-hidden rounded-xl shadow-2xl">
+          <video class="w-full rounded-xl" autoplay loop muted playsinline>
+            <source
+              src="https://readdy.ai/api/search-image?query=birthday%20celebration%20montage%20with%20friends%20and%20family%2C%20cake%20cutting%2C%20party%20scenes%2C%20happy%20moments&width=1280&height=720&seq=video1&orientation=landscape"
+              type="video/mp4"
+            />
+          </video>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end"
+          >
+            <div class="p-8 text-white">
+              <h3 class="text-2xl font-semibold mb-2">
+                Momen Spesial Ulang Tahun
+              </h3>
+              <p class="text-lg opacity-90">
+                Kumpulan kebahagiaan dan tawa di setiap perayaan
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center mb-12">
+          <div
+            class="inline-flex gap-4 bg-white/30 backdrop-blur-sm p-2 rounded-full"
+          >
+            <button
+              class="memory-tab active bg-primary text-white px-6 py-2 rounded-full transition-all duration-300"
+            >
+              Foto
+            </button>
+            <button
+              class="memory-tab bg-transparent hover:bg-primary/10 px-6 py-2 rounded-full transition-all duration-300"
+            >
+              Video
+            </button>
+          </div>
+        </div>
+        <!-- Memory Sections -->
+        <div
+          id="photos-section"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+        >
+          <!-- Image 1 -->
+          <div
+            class="gallery-img rounded-lg overflow-hidden shadow-md bg-white p-3"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Two%20friends%20celebrating%20birthday%20at%20a%20cafe%20with%20cake%20and%20coffee%2C%20warm%20lighting%2C%20genuine%20smiles%2C%20casual%20setting%2C%20festive%20atmosphere%20with%20small%20decorations%2C%20candid%20moment%20of%20joy%20and%20friendship&width=600&height=400&seq=1&orientation=landscape"
+              alt="Perayaan ulang tahun"
+              class="w-full h-64 object-cover rounded"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Perayaan di Kafe Favorit
+              </h3>
+              <p class="text-gray-600 text-sm">12 Januari 2024</p>
+              <p class="text-gray-700 mt-2">
+                Momen bahagia saat merayakan ulang tahun di kafe favorit kita
+                dengan secangkir kopi dan kue lezat.
+              </p>
+            </div>
+          </div>
+          <!-- Image 2 -->
+          <div
+            class="gallery-img rounded-lg overflow-hidden shadow-md bg-white p-3"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Beach%20vacation%20with%20friends%2C%20sunset%20view%2C%20people%20laughing%20and%20playing%20in%20the%20water%2C%20tropical%20setting%2C%20golden%20hour%20lighting%2C%20waves%20gently%20crashing%2C%20footprints%20in%20the%20sand%2C%20vacation%20vibes&width=600&height=400&seq=2&orientation=landscape"
+              alt="Liburan pantai"
+              class="w-full h-64 object-cover rounded"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Liburan ke Pantai
+              </h3>
+              <p class="text-gray-600 text-sm">5 Maret 2024</p>
+              <p class="text-gray-700 mt-2">
+                Petualangan seru kita di pantai dengan pemandangan matahari
+                terbenam yang indah.
+              </p>
+            </div>
+          </div>
+          <!-- Image 3 -->
+          <div
+            class="gallery-img rounded-lg overflow-hidden shadow-md bg-white p-3"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Hiking%20adventure%20in%20lush%20green%20mountains%2C%20friends%20taking%20a%20group%20selfie%20at%20the%20summit%2C%20panoramic%20view%2C%20achievement%20moment%2C%20backpacks%20and%20hiking%20gear%2C%20clear%20blue%20sky%2C%20natural%20beauty&width=600&height=400&seq=3&orientation=landscape"
+              alt="Pendakian gunung"
+              class="w-full h-64 object-cover rounded"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Pendakian Gunung Bersama
+              </h3>
+              <p class="text-gray-600 text-sm">17 April 2024</p>
+              <p class="text-gray-700 mt-2">
+                Pengalaman tak terlupakan saat mendaki gunung dan menikmati
+                keindahan alam bersama.
+              </p>
+            </div>
+          </div>
+          <!-- Image 4 -->
+          <div
+            class="gallery-img rounded-lg overflow-hidden shadow-md bg-white p-3"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Friends%20cooking%20together%20in%20a%20modern%20kitchen%2C%20laughing%20while%20preparing%20food%2C%20ingredients%20spread%20on%20counter%2C%20warm%20home%20atmosphere%2C%20casual%20clothing%2C%20teamwork%20and%20joy%2C%20homemade%20meal%20preparation&width=600&height=400&seq=4&orientation=landscape"
+              alt="Memasak bersama"
+              class="w-full h-64 object-cover rounded"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Sesi Memasak Bersama
+              </h3>
+              <p class="text-gray-600 text-sm">2 Mei 2024</p>
+              <p class="text-gray-700 mt-2">
+                Keseruan saat mencoba resep baru dan memasak bersama di dapur.
+              </p>
+            </div>
+          </div>
+          <!-- Image 5 -->
+          <div
+            class="gallery-img rounded-lg overflow-hidden shadow-md bg-white p-3"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Concert%20night%20with%20friends%2C%20colorful%20stage%20lights%2C%20crowd%20excitement%2C%20live%20music%20performance%2C%20hands%20in%20the%20air%2C%20joy%20and%20energy%2C%20musical%20event%2C%20night%20entertainment&width=600&height=400&seq=5&orientation=landscape"
+              alt="Konser musik"
+              class="w-full h-64 object-cover rounded"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Konser Band Favorit
+              </h3>
+              <p class="text-gray-600 text-sm">20 Mei 2024</p>
+              <p class="text-gray-700 mt-2">
+                Malam yang penuh energi saat menonton konser band favorit kita
+                bersama.
+              </p>
+            </div>
+          </div>
+          <!-- Image 6 -->
+          <div
+            class="gallery-img rounded-lg overflow-hidden shadow-md bg-white p-3"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Picnic%20in%20a%20beautiful%20park%2C%20friends%20sitting%20on%20blanket%2C%20sharing%20food%20and%20stories%2C%20sunny%20day%2C%20green%20grass%2C%20trees%20providing%20shade%2C%20casual%20outdoor%20gathering%2C%20relaxed%20atmosphere&width=600&height=400&seq=6&orientation=landscape"
+              alt="Piknik di taman"
+              class="w-full h-64 object-cover rounded"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Piknik di Taman Kota
+              </h3>
+              <p class="text-gray-600 text-sm">8 Juni 2024</p>
+              <p class="text-gray-700 mt-2">
+                Hari yang menyenangkan saat piknik dan bersantai di taman kota
+                yang asri.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Videos Section -->
+        <div
+          id="videos-section"
+          class="hidden grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+        >
+          <div
+            class="gallery-img rounded-xl overflow-hidden shadow-lg bg-white"
+          >
+            <video class="w-full h-64 object-cover" controls>
+              <source
+                src="https://readdy.ai/api/search-image?query=friends%20dancing%20and%20singing%20at%20karaoke%20night%2C%20colorful%20lights%2C%20fun%20atmosphere&width=600&height=400&seq=video2&orientation=landscape"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Malam Karaoke</h3>
+              <p class="text-gray-600 text-sm">15 April 2024</p>
+              <p class="text-gray-700 mt-2">
+                Seru-seruan bernyanyi dan menari bersama di tempat karaoke
+                favorit.
+              </p>
+            </div>
+          </div>
+          <div
+            class="gallery-img rounded-xl overflow-hidden shadow-lg bg-white"
+          >
+            <video class="w-full h-64 object-cover" controls>
+              <source
+                src="https://readdy.ai/api/search-image?query=road%20trip%20adventure%20with%20friends%2C%20scenic%20views%2C%20car%20journey%2C%20sunset&width=600&height=400&seq=video3&orientation=landscape"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Road Trip Seru
+              </h3>
+              <p class="text-gray-600 text-sm">3 Mei 2024</p>
+              <p class="text-gray-700 mt-2">
+                Petualangan road trip yang tak terlupakan bersama sahabat.
+              </p>
+            </div>
+          </div>
+          <div
+            class="gallery-img rounded-xl overflow-hidden shadow-lg bg-white"
+          >
+            <video class="w-full h-64 object-cover" controls>
+              <source
+                src="https://readdy.ai/api/search-image?query=surprise%20birthday%20party%20preparation%20and%20celebration%2C%20decorations%2C%20cake%2C%20friends&width=600&height=400&seq=video4&orientation=landscape"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">
+                Surprise Party
+              </h3>
+              <p class="text-gray-600 text-sm">20 Mei 2024</p>
+              <p class="text-gray-700 mt-2">
+                Momen mengejutkan saat persiapan dan perayaan ulang tahun
+                surprise.
+              </p>
+            </div>
+          </div>
+          <div
+            class="gallery-img rounded-xl overflow-hidden shadow-lg bg-white"
+          >
+            <video class="w-full h-64 object-cover" controls>
+              <source
+                src="https://readdy.ai/api/search-image?query=cooking%20class%20with%20friends%2C%20learning%20new%20recipes%2C%20kitchen%20fun&width=600&height=400&seq=video5&orientation=landscape"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">Kelas Memasak</h3>
+              <p class="text-gray-600 text-sm">8 Juni 2024</p>
+              <p class="text-gray-700 mt-2">
+                Belajar memasak bersama di kelas kuliner spesial.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Back Button -->
+        <div class="flex justify-center">
+          <button
+            id="back-to-home-btn"
+            class="bg-secondary hover:bg-teal-500 text-white font-semibold py-3 px-8 rounded-button text-lg transition-all duration-300 transform hover:scale-105 flex items-center !rounded-button whitespace-nowrap"
+          >
+            <div class="w-6 h-6 mr-2 flex items-center justify-center">
+              <i class="ri-arrow-left-line"></i>
+            </div>
+            <span>Kembali</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script id="confetti-animation">
+      document.addEventListener("DOMContentLoaded", function () {
+        const viewMemoriesBtn = document.getElementById("view-memories-btn");
+        const backToHomeBtn = document.getElementById("back-to-home-btn");
+        const homePage = document.getElementById("home-page");
+        const memoriesPage = document.getElementById("memories-page");
+        function createConfetti() {
+          const colors = ["#FF6B6B", "#4ECDC4", "#FFD166", "#06D6A0", "#118AB2"];
+          const confettiCount = 200;
+          for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const size = Math.random() * 10 + 5;
+            const shape = Math.random() > 0.5 ? "50%" : "0%";
+            confetti.style.setProperty("--color", color);
+            confetti.style.setProperty(
+              "--fall-duration",
+              Math.random() * 3 + 2 + "s",
+            );
+            confetti.style.setProperty(
+              "--sway-duration",
+              Math.random() * 6 + 3 + "s",
+            );
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+            confetti.style.borderRadius = shape;
+            confetti.style.backgroundColor = color;
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.opacity = "0.8";
+            document.body.appendChild(confetti);
+            setTimeout(() => {
+              confetti.remove();
+            }, 5000);
+          }
+        }
+        viewMemoriesBtn.addEventListener("click", function () {
+          createConfetti();
+          setTimeout(() => {
+            homePage.classList.add("opacity-0");
+            homePage.style.transition = "opacity 0.5s ease";
+            setTimeout(() => {
+              homePage.classList.add("hidden");
+              memoriesPage.classList.remove("hidden");
+              memoriesPage.classList.add("opacity-0");
+              setTimeout(() => {
+                memoriesPage.classList.remove("opacity-0");
+                memoriesPage.style.transition = "opacity 0.5s ease";
+                memoriesPage.style.opacity = "1";
+              }, 50);
+            }, 500);
+          }, 500);
+        });
+        backToHomeBtn.addEventListener("click", function () {
+          memoriesPage.classList.add("opacity-0");
+          memoriesPage.style.transition = "opacity 0.5s ease";
+          setTimeout(() => {
+            memoriesPage.classList.add("hidden");
+            homePage.classList.remove("hidden");
+            homePage.classList.add("opacity-0");
+            setTimeout(() => {
+              homePage.classList.remove("opacity-0");
+              homePage.style.opacity = "1";
+            }, 50);
+          }, 500);
+        });
+      });
+    </script>
+    <script id="memory-tabs">
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".memory-tab");
+        const photosSection = document.getElementById("photos-section");
+        const videosSection = document.getElementById("videos-section");
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", function () {
+            tabs.forEach((t) => {
+              t.classList.remove("active", "bg-primary", "text-white");
+              t.classList.add("bg-transparent", "hover:bg-primary/10");
+            });
+
+            this.classList.add("active", "bg-primary", "text-white");
+            this.classList.remove("bg-transparent", "hover:bg-primary/10");
+            if (this.textContent === "Foto") {
+              photosSection.classList.remove("hidden");
+              videosSection.classList.add("hidden");
+            } else {
+              photosSection.classList.add("hidden");
+              videosSection.classList.remove("hidden");
+            }
+          });
+        });
+      });
+    </script>
+    <script id="parallax-effect">
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleryImages = document.querySelectorAll(".gallery-img");
+
+        function handleScroll() {
+          const scrollPosition = window.scrollY;
+          galleryImages.forEach((image, index) => {
+            const rect = image.getBoundingClientRect();
+            const offset = index % 2 === 0 ? 0.05 : -0.05;
+
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              const translateY = (scrollPosition - rect.top) * offset;
+              image.style.transform = `translateY(${translateY}px)`;
+              image.style.opacity = "1";
+            }
+          });
+        }
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+      });
+    </script>
+    <style>
+      .gallery-img {
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.3s ease;
+      }
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.8s ease forwards;
+      }
+    </style>
+  </body>
+</html>

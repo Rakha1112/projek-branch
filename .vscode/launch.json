@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Rakha",
+      "request": "launch",
+      "mainClass": "Rakha",
+      "projectName": "raka_1086d57"
+    },
+    {
+      "type": "java",
+      "name": "Rakha",
+      "request": "launch",
+      "mainClass": "Rakha",
+      "projectName": "raka_e51a079d"
+    }
+  ]
+}

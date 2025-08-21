@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA - Hiking & Tracking</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body class="min-h-screen bg-secondary font-['Inter']">
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center">
+                <a href="#" class="font-['Pacifico'] text-2xl text-primary">Aurora</a>
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="login.html" class="text-accent hover:text-primary transition-colors">Beranda</a></li>
+                <li><a href="login.html" class="text-accent hover:text-primary transition-colors">Kategori</a></li>
+                <li><a href="login.html" class="text-accent hover:text-primary transition-colors">Produk</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="relative w-10 h-10 flex items-center justify-center text-accent hover:text-primary" aria-label="Keranjang">
+                    <i class="ri-shopping-cart-line text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white rounded-full text-xs font-medium px-1.5 py-0.5 min-w-[20px] text-center hidden">0</span>
+                </a>
+                <a href="login.html" class="w-10 h-10 flex items-center justify-center text-accent hover:text-primary" aria-label="Pengguna">
+                    <i class="ri-user-line text-xl"></i>
+                </a>
+                <a href="../public/register.html" class="hidden md:inline-block bg-secondary text-accent py-2 px-4 rounded-button hover:bg-gray-200 transition-colors text-sm">Register</a>
+                <span class="hidden md:inline-block text-gray-400">|</span>
+                <a href="../public/login.html" class="hidden md:inline-block text-accent hover:text-primary transition-colors text-sm">Masuk</a>
+                <button id="mobile-menu-button" class="md:hidden text-accent hover:text-primary focus:outline-none" aria-label="Buka menu">
+                    <i class="ri-menu-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2 bg-white shadow-md animate-slide-up">
+                <a href="#" class="block text-accent hover:text-primary">Beranda</a>
+                <a href="#" class="block text-accent hover:text-primary">Kategori</a>
+                <a href="#" class="block text-accent hover:text-primary">Produk</a>
+                <a href="../public/register.html" class="block bg-secondary text-accent py-2 px-4 rounded-button hover:bg-gray-200">Register</a>
+                <a href="../public/login.html" class="block text-accent hover:text-primary">Masuk</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-cover bg-center py-20 text-white" style="background-image: url('../image/Merapi Volcano.jpeg')">
+        <div class="container mx-auto px-4 text-center md:text-left">
+            <div class="max-w-xl animate-slide-up">
+                <h1 class="text-3xl md:text-5xl font-bold mb-5">Ingin Pengalaman Hiking dan Tracking yang Aman?</h1>
+                <p class="text-lg mb-8">Kami menyediakan perlengkapan outdoor berkualitas tinggi untuk petualangan Anda.</p>
+                <a href="login.html" class="bg-primary hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-button transition-colors animate-pulse">Lihat Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-semibold text-accent mb-8 animate-slide-up">KATEGORI</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="flex flex-col items-center animate-slide-up">
+                    <img src="../image/WhatsApp_Image_2025-05-13_at_19.57.34_5cd7684d-removebg-preview.png" alt="Sepatu" class="h-12 mb-2">
+                    <span class="text-accent font-semibold">Sepatu</span>
+                </div>
+                <div class="flex flex-col items-center animate-slide-up">
+                    <img src="../image/Screenshot_2025-05-13_200806-removebg-preview.png" alt="Tas" class="h-12 mb-2">
+                    <span class="text-accent font-semibold">Tas</span>
+                </div>
+                <div class="flex flex-col items-center animate-slide-up">
+                    <img src="../image/Screenshot_2025-05-13_201114-removebg-preview.png" alt="Tenda" class="h-12 mb-2">
+                    <span class="text-accent font-semibold">Tenda</span>
+                </div>
+                <div class="flex flex-col items-center animate-slide-up">
+                    <img src="../image/Screenshot_2025-05-13_201422-removebg-preview.png" alt="Medical" class="h-12 mb-2">
+                    <span class="text-accent font-semibold">Medical</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-accent mb-8 text-center animate-slide-up">PRODUK UNGGULAN</h2>
+            <div class="relative overflow-x-auto scrollbar-hidden">
+                <div id="product-carousel" class="overflow-x-auto whitespace-nowrap scroll-smooth">
+                    <div class="inline-flex space-x-6">
+                        <div class="w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                            <img src="../image/Salomon ACS Pro Advanced Deep Lichen Green Men's….jpeg" alt="Sepatu Salomon Pro" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-md font-semibold text-accent mb-2">Salomon Pro</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-yellow-400">★★★★☆</span>
+                                    <span class="text-gray-600 ml-2 text-sm">4.0</span>
+                                </div>
+                                <p class="text-accent font-bold text-lg">Rp 3.500.000</p>
+                                <div class="flex gap-2 mt-4">
+                                    <button class="view-product bg-accent text-white font-bold py-2 px-4 rounded-button w-1/2 hover:bg-gray-800 transition-colors" data-id="1" aria-label="Lihat detail produk">Detail</button>
+                                    <button class="add-to-cart bg-primary text-white font-bold py-2 px-4 rounded-button w-1/2 hover:bg-orange-600 transition-colors" data-id="1" data-title="Salomon Pro" data-price="3500000" data-image="../image/Salomon ACS Pro Advanced Deep Lichen Green Men's….jpeg" aria-label="Tambah ke keranjang">Keranjang</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                            <img src="../image/Salomon ACS Pro Advanced Deep Lichen Green Men's….jpeg" alt="Sepatu Salomon Ultra" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-md font-semibold text-accent mb-2">Salomon Ultra</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-yellow-400">★★★★☆</span>
+                                    <span class="text-gray-600 ml-2 text-sm">4.0</span>
+                                </div>
+                                <p class="text-accent font-bold text-lg">Rp 3.500.000</p>
+                                <div class="flex gap-2 mt-4">
+                                    <button class="view-product bg-accent text-white font-bold py-2 px-4 rounded-button w-1/2 hover:bg-gray-800 transition-colors" data-id="2" aria-label="Lihat detail produk">Detail</button>
+                                    <button class="add-to-cart bg-primary text-white font-bold py-2 px-4 rounded-button w-1/2 hover:bg-orange-600 transition-colors" data-id="2" data-title="Salomon Ultra" data-price="3500000" data-image="../image/Salomon ACS Pro Advanced Deep Lichen Green Men's….jpeg" aria-label="Tambah ke keranjang">Keranjang</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                            <img src="../image/Salomon ACS Pro Advanced Deep Lichen Green Men's….jpeg" alt="Sepatu Salomon Lite" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-md font-semibold text-accent mb-2">Salomon Lite</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-yellow-400">★★★★☆</span>
+                                    <span class="text-gray-600 ml-2 text-sm">4.0</span>
+                                </div>
+                                <p class="text-accent font-bold text-lg">Rp 3.250.000</p>
+                                <div class="flex gap-2 mt-4">
+                                    <button class="view-product bg-accent text-white font-bold py-2 px-4 rounded-button w-1/2 hover:bg-gray-800 transition-colors" data-id="3" aria-label="Lihat detail produk">Detail</button>
+                                    <button class="add-to-cart bg-primary text-white font-bold py-2 px-4 rounded-button w-1/2 hover:bg-orange-600 transition-colors" data-id="3" data-title="Salomon Lite" data-price="3250000" data-image="../image/Salomon ACS Pro Advanced Deep Lichen Green Men's….jpeg" aria-label="Tambah ke keranjang">Keranjang</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="prev-product" class="absolute left-0 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full -ml-4 focus:outline-none hover:bg-orange-900 hover:scale-110 transition-all duration-200" aria-label="Produk sebelumnya">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <button id="next-product" class="absolute right-0 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full -mr-4 focus:outline-none hover:bg-orange-900 hover:scale-110 transition-all duration-200" aria-label="Produk berikutnya">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-accent mb-8 text-center animate-slide-up">DESTINASI</h2>
+            <div class="relative overflow-x-auto scrollbar-hidden">
+                <div id="destination-carousel" class="overflow-x-auto whitespace-nowrap scroll-smooth">
+                    <div class="inline-flex space-x-6">
+                        <div class="w-80 rounded-lg overflow-hidden shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                            <img src="../image/Mount Rinjani or Gunung Rinjani is an active volcano in Indonesia on the island of Lombok.jpeg" alt="Gunung Rinjani" class="w-full h-48 object-cover">
+                            <div class="bg-white p-4">
+                                <h3 class="text-md font-semibold text-accent mb-2">Gunung Rinjani</h3>
+                                <p class="text-gray-600 text-sm mb-3">3.726 mdpl</p>
+                                <a href="login.html" class="inline-block bg-primary hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-button w-full text-center">Lihat Detail</a>
+                            </div>
+                        </div>
+                        <div class="w-80 rounded-lg overflow-hidden shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                            <img src="../image/Merapi Volcano.jpeg" alt="Gunung Semeru" class="w-full h-48 object-cover">
+                            <div class="bg-white p-4">
+                                <h3 class="text-md font-semibold text-accent mb-2">Gunung Semeru</h3>
+                                <p class="text-gray-600 text-sm mb-3">3.676 mdpl</p>
+                                <a href="login.html" class="inline-block bg-primary hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-button w-full text-center">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="prev-destination" class="absolute left-0 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full -ml-4 focus:outline-none hover:bg-orange-900 hover:scale-110 transition-all duration-200" aria-label="Destinasi sebelumnya">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <button id="next-destination" class="absolute right-0 top-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full -mr-4 focus:outline-none hover:bg-orange-900 hover:scale-110 transition-all duration-200" aria-label="Destinasi berikutnya">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-accent mb-8 text-center animate-slide-up">ULASAN PELANGGAN</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <img src="../image/WhatsApp placeholder.png" alt="Dewi S." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-md font-semibold text-accent">Dewi S.</h3>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">"Sepatu keren! Kualitas sangat baik, gripnya sangat bagus di berbagai medan."</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <img src="../image/Mount Rinjani or Gunung Rinjani is an active volcano in Indonesia on the island of Lombok.jpeg" alt="Andi Faisal" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-md font-semibold text-accent">Andi Faisal</h3>
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">"Jaket benar-benar windproof! Saya terjebak hujan salju di Ranu Kumbolo, tapi badan tetap kering. Bahannya juga ringan, pas untuk dibawa kemana-mana."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="product-modal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[1000]" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="bg-white rounded-md w-[95%] max-w-3xl max-h-[90vh] overflow-y-auto p-6 relative animate-fade-in">
+            <span class="absolute top-3 right-3 text-2xl text-gray-500 hover:text-primary cursor-pointer transition-colors" aria-label="Tutup modal">×</span>
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-1/2">
+                    <div class="overflow-hidden rounded-lg bg-secondary">
+                        <img id="modal-image" src="" alt="Gambar Produk" class="w-full h-[300px] object-contain p-4">
+                    </div>
+                    <div class="flex justify-center gap-2 mt-4">
+                        <img src="../image/Merapi Volcano.jpeg" alt="Dewi S." class="w-12 h-1 rounded-full mt-4 ">
+                        <div class="carousel-image w-16 h-16 bg-secondary rounded-md flex items-center justify-center cursor-pointer opacity-50 transition-all duration-200 hover:opacity-100" data-index="1">
+                            <img id="carousel-1" src="" alt="Gambar Produk 1" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="carousel-image w-16 h-16 bg-secondary rounded-md flex items-center justify-center cursor-pointer opacity-50 transition-all duration-200 hover:opacity-100" data-index="2">
+                            <img id="carousel-2" src="" alt="Gambar Produk 2" class="w-full h-full object-contain p-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 id="modal-title" class="font-semibold text-xl text-accent mb-2"></h3>
+                    <p id="modal-price" class="text-primary font-bold text-lg mb-2"></p>
+                    <div class="flex items-center mb-2">
+                        <span id="rating-stars" class="text-yellow-400">★★★★☆</span>
+                        <span id="modal-rating" class="text-gray-600 text-sm ml-2">4.0</span>
+                    </div>
+                    <p id="modal-description" class="text-gray-600 text-sm mb-4">Sepatu hiking premium dengan bahan tahan air dan grip kuat, cocok untuk berbagai medan petualangan.</p>
+                    <div class="flex items-center gap-4 mb-4">
+                        <label for="quantity-input" class="text-gray-600 text-sm font-medium">Jumlah:</label>
+                        <div class="flex items-center border border-gray-300 rounded-md">
+                            <button id="quantity-decrement" class="px-2 py-1 text-gray-600 hover:text-primary" aria-label="Kurangi jumlah">-</button>
+                            <input type="number" id="quantity-input" min="1" value="1" class="w-12 p-1 text-center border-none focus:outline-none text-sm">
+                            <button id="quantity-increment" class="px-2 py-1 text-gray-600 hover:text-primary" aria-label="Tambah jumlah">+</button>
+                        </div>
+                    </div>
+                    <button  id="add-to-cart-modal" class="bg-primary text-white font-bold py-2 px-4 rounded-button w-full hover:bg-orange-600 transition-colors" aria-label="Tambah ke keranjang">Tambah ke Keranjang</button>
+                    <p id="cart-feedback" class="text-green-600 text-sm mt-2 text-center hidden">Ditambahkan ke keranjang!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-accent text-white py-6 text-center">
+        <p class="text-sm">Created by @Rakha</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('#mobile-menu-button');
+            const mobileMenu = document.querySelector('#mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Cart functionality
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.querySelector('#cart-count');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const viewProductButtons = document.querySelectorAll('.view-product');
+            const modal = document.querySelector('#product-modal');
+            const modalImage = document.querySelector('#modal-image');
+            const modalTitle = document.querySelector('#modal-title');
+            const modalPrice = document.querySelector('#modal-price');
+            const modalRating = document.querySelector('#modal-rating');
+            const modalDescription = document.querySelector('#modal-description');
+            const carousel1 = document.querySelector('#carousel-1');
+            const carousel2 = document.querySelector('#carousel-2');
+            const carouselImages = document.querySelectorAll('.carousel-image');
+            const closeModal = document.querySelector('.close-modal');
+            const addToCartModal = document.querySelector('#add-to-cart-modal');
+            const cartFeedback = document.querySelector('#cart-feedback');
+            const quantityInput = document.querySelector('#quantity-input');
+            const quantityDecrement = document.querySelector('#quantity-decrement');
+            const quantityIncrement = document.querySelector('#quantity-increment');
+
+            const products = [
+                { id: '1', title: 'Salomon Pro', price: 3500000, image: '../image/Salomon ACS Pro Advanced Deep Lichen Green Men\'s….jpeg', rating: 4.0 },
+                { id: '2', title: 'Salomon Ultra', price: 3500000, image: '../image/Salomon ACS Pro Advanced Deep Lichen Green Men\'s….jpeg', rating: 4.0 },
+                { id: '3', title: 'Salomon Lite', price: 3250000, image: '../image/Salomon ACS Pro Advanced Deep Lichen Green Men\'s….jpeg', rating: 4.0 }
+            ];
+
+            function updateCartCount() {
+                if (cartCount) {
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                    cartCount.classList.toggle('hidden', totalItems === 0);
+                }
+            }
+
+            function addToCart(id, title, price, image, quantity) {
+                const existingItem = cart.find(item => item.id === id);
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    cart.push({ id, title, price, image, quantity });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                const feedback = document.createElement('div');
+                feedback.className = 'fixed bottom-4 right-4 bg-primary text-white px-4 py-2 rounded-md text-sm animate-slide-up';
+                feedback.textContent = 'Ditambahkan ke keranjang!';
+                document.body.appendChild(feedback);
+                setTimeout(() => feedback.remove(), 2000);
+            }
+
+            if (addToCartButtons) {
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const id = button.dataset.id;
+                        const title = button.dataset.title;
+                        const price = parseFloat(button.dataset.price);
+                        const image = button.dataset.image;
+                        addToCart(id, title, price, image, 1);
+                    });
+                });
+            }
+
+            if (viewProductButtons && modal && modalImage && modalTitle && modalPrice && modalRating && modalDescription && carousel1 && carousel2 && addToCartModal && cartFeedback && quantityInput) {
+                viewProductButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const product = products.find(p => p.id === button.dataset.id);
+                        if (product) {
+                            modalImage.src = product.image;
+                            modalImage.alt = product.title;
+                            carousel1.src = 'https://via.placeholder.com/150?text=Side+View';
+                            carousel1.alt = `${product.title} Side View`;
+                            carousel2.src = 'https://via.placeholder.com/150?text=Angle+View';
+                            carousel2.alt = `${product.title} Angle View`;
+                            modalTitle.textContent = product.title;
+                            modalPrice.textContent = `Rp ${product.price.toLocaleString('id-ID')}`;
+                            modalRating.textContent = `${product.rating}`;
+                            modalDescription.textContent = 'Sepatu hiking premium dengan bahan tahan air dan grip kuat, cocok untuk berbagai medan petualangan.';
+                            quantityInput.value = 1;
+                            cartFeedback.classList.add('hidden');
+                            modal.classList.remove('hidden');
+                            carouselImages.forEach(item => item.classList.remove('border-2', 'border-primary', 'opacity-100'));
+                            if (carouselImages[0]) carouselImages[0].classList.add('border-2', 'border-primary', 'opacity-100');
+
+                            addToCartModal.onclick = () => {
+                                const quantity = parseInt(quantityInput.value);
+                                if (quantity > 0) {
+                                    addToCart(product.id, product.title, product.price, product.image, quantity);
+                                    cartFeedback.classList.remove('hidden');
+                                    setTimeout(() => cartFeedback.classList.add('hidden'), 2000);
+                                }
+                            };
+                        }
+                    });
+                });
+            }
+
+            if (carouselImages) {
+                carouselImages.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const index = parseInt(item.dataset.index);
+                        const images = [modalImage?.src, carousel1?.src, carousel2?.src];
+                        if (modalImage && images[index]) {
+                            modalImage.src = images[index];
+                            modalImage.alt = item.querySelector('img')?.alt || '';
+                            carouselImages.forEach(i => i.classList.remove('border-2', 'border-primary', 'opacity-100'));
+                            item.classList.add('border-2', 'border-primary', 'opacity-100');
+                        }
+                    });
+                });
+            }
+
+            if (closeModal && modal) {
+                closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+            }
+
+            if (modal) {
+                window.addEventListener('click', (e) => {
+                    if (e.target === modal) modal.classList.add('hidden');
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+                });
+            }
+
+            if (quantityDecrement && quantityInput) {
+                quantityDecrement.addEventListener('click', () => {
+                    let value = parseInt(quantityInput.value);
+                    if (value > 1) quantityInput.value = value - 1;
+                });
+            }
+
+            if (quantityIncrement && quantityInput) {
+                quantityIncrement.addEventListener('click', () => {
+                    let value = parseInt(quantityInput.value);
+                    quantityInput.value = value + 1;
+                });
+            }
+
+            if (quantityInput) {
+                quantityInput.addEventListener('input', () => {
+                    if (quantityInput.value < 1) quantityInput.value = 1;
+                });
+            }
+
+            // Product carousel navigation
+            const productCarousel = document.querySelector('#product-carousel');
+            const prevProduct = document.querySelector('#prev-product');
+            const nextProduct = document.querySelector('#next-product');
+            if (productCarousel && prevProduct && nextProduct) {
+                prevProduct.addEventListener('click', () => {
+                    productCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+                });
+                nextProduct.addEventListener('click', () => {
+                    productCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+                });
+            }
+
+            // Destination carousel navigation
+            const destinationCarousel = document.querySelector('#destination-carousel');
+            const prevDestination = document.querySelector('#prev-destination');
+            const nextDestination = document.querySelector('#next-destination');
+            if (destinationCarousel && prevDestination && nextDestination) {
+                prevDestination.addEventListener('click', () => {
+                    destinationCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+                });
+                nextDestination.addEventListener('click', () => {
+                    destinationCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+                });
+            }
+
+            // Initialize cart count
+            updateCartCount();
+        });
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        secondary: '#f8f8f8',
+                        accent: '#1f2937'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        'DEFAULT': '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.4s ease-in-out',
+                        'pulse': 'pulse 0.3s ease-in-out',
+                        'slide-up': 'slideUp 0.4s ease-in-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+<script ></script>
+
+</html>

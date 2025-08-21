@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="1.CSS" />
+  </head>
+  <body>
+    <section>
+      <h1 class="judul-form">FORM DATA MASTER PRODUK</h1>
+      <form action="" id="formdata">
+        <label for="kodeproduk">Kode Produk</label>
+        <input type="text" id="kodeproduk" />
+        <label for="nameproduk">name produk</label>
+        <input type="text" id="nameproduk" placeholder="Masukan Nama Produk" />
+        <label for="harga">Harga</label>
+        <input type="number" name="harga" id="harga" />
+        <label for="kategori">kategori</label>
+        <select name="kategori" id="kategori">
+          <option value="makanan">makanan</option>
+          <option value="minuman">minuman</option>
+          <option value="buah-buahan">buah-buahan</option>
+        </select>
+
+        <button type="button" onclick="saveForm()">Simpan</button>
+      </form>
+    </section>
+    <table>
+      <thead>
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+        </tr>
+      </thead>
+    </table>
+    
+     <script src="1.js"></script>
+  </body>
+
+  <section>
+    <table id="productTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Kode Produk</th>
+          <th>Nama Produk</th>
+          <th>Satuan</th>
+          <th>Kategory</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  
+</html>

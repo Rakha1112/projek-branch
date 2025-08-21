@@ -1,0 +1,90 @@
+import Link from "next/link";
+
+export default function Profil() {
+  return (
+    <div className="min-h-screen bg-blue-50 font-sans text-gray-800">
+      <header className="bg-blue-700 text-white shadow-md py-4 fixed top-0 w-full z-50">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link href="/" className="text-2xl font-bold">
+            Aurora
+          </Link>
+          <div className="flex items-center space-x-4">
+            <Link href="/keranjang" className="relative text-white hover:text-blue-200">
+              <i className="ri-shopping-cart-line text-xl"></i>
+            </Link>
+          </div>
+        </div>
+      </header>
+      <main className="container mx-auto px-4 py-16 mt-16 animate-fadeIn">
+        <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <Link href="/" className="flex items-center text-blue-600 hover:text-blue-800 mb-4">
+            <i className="ri-arrow-left-line mr-2"></i> Back
+          </Link>
+          <h2 className="text-2xl font-semibold text-center text-blue-700 mb-6">Settings</h2>
+          <div className="mb-6 border-b border-blue-200">
+            <h3 className="px-4 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-700">
+              Profile
+            </h3>
+          </div>
+          <form action="/api/profile" method="POST" className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                className="w-full px-3 py-2 bg-blue-50 rounded-md border border-blue-300 focus:border-blue-600 focus:ring focus:ring-blue-200"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                className="w-full px-3 py-2 bg-blue-50 rounded-md border border-blue-300 focus:border-blue-600 focus:ring focus:ring-blue-200"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Save
+            </button>
+          </form>
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold text-blue-700 mb-4">Order History</h3>
+            <div className="space-y-4">
+              <div className="bg-blue-50 p-4 rounded-md shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-blue-200 rounded-md flex items-center justify-center">
+                    <i className="ri-image-line text-xl text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-blue-700">Sample Product</h4>
+                    <p className="text-xs text-gray-600">Qty: 1</p>
+                    <p className="text-xs text-gray-600">Total: $29.99</p>
+                    <p className="text-xs text-gray-600">Date: 07/29/2025</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-600 text-center text-sm">More history available with JavaScript enabled.</p>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <h3 className="text-xl font-semibold text-blue-700 mb-4">Log Out</h3>
+            <p className="text-gray-600 mb-4">Are you sure you want to log out?</p>
+            <Link href="/login" className="w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-center block">
+              Log Out
+            </Link>
+          </div>
+        </div>
+      </main>
+      <footer className="bg-blue-700 text-white py-4 text-center">
+        <p className="text-sm">Created by @Rakha - {new Date().toLocaleDateString("en-US", { timeZone: "Asia/Jakarta" })}</p>
+      </footer>
+    </div>
+  );
+}

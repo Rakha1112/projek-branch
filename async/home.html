@@ -1,0 +1,273 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satria - Home</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col font-['Inter'] bg-gray-100">
+    <header class="bg-white shadow fixed top-0 w-full z-10">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="https://via.placeholder.com/40" alt="Satria Logo" class="w-10 h-10">
+                <span class="text-xl font-bold text-primary">Satria</span>
+            </a>
+            <nav class="flex items-center space-x-4">
+                <input type="text" id="searchInput" placeholder="Search..." class="px-3 py-1 border border-gray-300 rounded-sm text-sm focus:border-primary focus:ring-2 focus:ring-primary">
+                <div class="relative">
+                    <a href="keranjang.html" id="cartLink" class="text-gray-600 hover:text-primary text-sm flex items-center">
+                        🛒 Keranjang
+                        <span id="cartCount" class="absolute -top-2 -right-4 bg-primary text-white rounded-full text-xs px-2 py-0.5 hidden">0</span>
+                    </a>
+                </div>
+                <a href="profil.html" id="profileLink" class="text-gray-600 hover:text-primary text-sm flex items-center gap-1">
+                    <span>🧑</span> Profil
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pt-20 pb-12 flex-grow">
+        <section class="mb-8">
+            <h2 class="text-lg font-bold text-gray-800 mb-3">Kategori</h2>
+            <div id="categoriesContainer" class="flex flex-wrap gap-2"></div>
+            <p id="categoryErrorMessage" class="hidden text-red-600 text-sm mt-2"></p>
+        </section>
+        <section>
+            <h2 class="text-lg font-bold text-gray-800 mb-3">Produk</h2>
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <p id="errorMessage" class="hidden text-red-600 text-sm text-center mt-4"></p>
+        </section>
+    </main>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]">
+        <div class="bg-white rounded-lg w-full max-w-2xl p-6 max-h-[90vh] overflow-y-auto">
+            <button class="text-gray-500 hover:text-primary text-xl float-right" id="closeModal">×</button>
+            <div class="flex flex-col md:flex-row gap-6">
+                <img id="modalImage" src="" alt="Product" class="w-full md:w-1/2 h-64 object-contain">
+                <div class="flex flex-col gap-4">
+                    <h3 id="modalTitle" class="text-lg font-semibold text-gray-800"></h3>
+                    <p id="modalPrice" class="text-primary font-bold text-lg"></p>
+                    <p id="modalCategory" class="text-gray-600 text-sm capitalize"></p>
+                    <p id="modalDescription" class="text-gray-600 text-sm"></p>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-600 text-sm">Jumlah:</span>
+                        <div class="flex items-center border border-gray-300 rounded-sm">
+                            <button id="decrementQuantity" class="px-3 py-1 text-gray-600 hover:text-primary">-</button>
+                            <input id="quantityInput" type="number" value="1" min="1" class="w-16 p-1 text-center border-none focus:outline-none text-sm">
+                            <button id="incrementQuantity" class="px-3 py-1 text-gray-600 hover:text-primary">+</button>
+                        </div>
+                    </div>
+                    <button id="addToCart" class="bg-primary text-white px-4 py-2 rounded-sm text-sm hover:bg-orange-600">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="hidden fixed bottom-4 right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg text-sm z-[1001]">
+        Item added to cart!
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <p class="text-sm">© 2025 Satria. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user')) || {};
+            const elements = {
+                searchInput: document.querySelector('#searchInput'),
+                categoriesContainer: document.querySelector('#categoriesContainer'),
+                categoryErrorMessage: document.querySelector('#categoryErrorMessage'),
+                productGrid: document.querySelector('#productGrid'),
+                errorMessage: document.querySelector('#errorMessage'),
+                profileLink: document.querySelector('#profileLink'),
+                cartLink: document.querySelector('#cartLink'),
+                cartCount: document.querySelector('#cartCount'),
+                productModal: document.querySelector('#productModal'),
+                modalImage: document.querySelector('#modalImage'),
+                modalTitle: document.querySelector('#modalTitle'),
+                modalPrice: document.querySelector('#modalPrice'),
+                modalCategory: document.querySelector('#modalCategory'),
+                modalDescription: document.querySelector('#modalDescription'),
+                addToCart: document.querySelector('#addToCart'),
+                closeModal: document.querySelector('#closeModal'),
+                quantityInput: document.querySelector('#quantityInput'),
+                decrementQuantity: document.querySelector('#decrementQuantity'),
+                incrementQuantity: document.querySelector('#incrementQuantity'),
+                toast: document.querySelector('#toast')
+            };
+
+            let products = [];
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Show toast notification
+            const showToast = (message) => {
+                elements.toast.textContent = message;
+                elements.toast.classList.remove('hidden');
+                setTimeout(() => {
+                    elements.toast.classList.add('hidden');
+                }, 3000); // Hide after 3 seconds
+            };
+
+            // Update auth links
+            const updateAuthLinks = () => {
+                elements.profileLink.href = 'profil.html';
+                elements.profileLink.innerHTML = '<span>🧑</span> Profil';
+            };
+
+            // Update cart count
+            const updateCartCount = () => {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                elements.cartCount.textContent = totalItems;
+                elements.cartCount.classList.toggle('hidden', totalItems === 0);
+            };
+
+            // Show product modal
+            const showProductModal = (product) => {
+                elements.modalImage.src = product.image;
+                elements.modalImage.alt = product.title;
+                elements.modalTitle.textContent = product.title;
+                elements.modalPrice.textContent = `$${product.price.toFixed(2)}`;
+                elements.modalCategory.textContent = `Kategori: ${product.category}`;
+                elements.modalDescription.textContent = product.description || 'Tidak ada deskripsi tersedia.';
+                elements.quantityInput.value = 1; // Reset quantity
+                elements.productModal.classList.remove('hidden');
+            };
+
+            // Quantity controls
+            elements.decrementQuantity.addEventListener('click', () => {
+                let value = parseInt(elements.quantityInput.value);
+                if (value > 1) {
+                    elements.quantityInput.value = value - 1;
+                }
+            });
+
+            elements.incrementQuantity.addEventListener('click', () => {
+                let value = parseInt(elements.quantityInput.value);
+                elements.quantityInput.value = value + 1;
+            });
+
+            elements.quantityInput.addEventListener('input', () => {
+                if (elements.quantityInput.value < 1) {
+                    elements.quantityInput.value = 1;
+                }
+            });
+
+            // Close modal
+            elements.closeModal.addEventListener('click', () => {
+                elements.productModal.classList.add('hidden');
+            });
+            elements.productModal.addEventListener('click', (e) => {
+                if (e.target === elements.productModal) elements.productModal.classList.add('hidden');
+            });
+
+            // Add to cart with notification
+            elements.addToCart.addEventListener('click', () => {
+                const product = products.find(p => p.title === elements.modalTitle.textContent);
+                if (product) {
+                    const quantity = parseInt(elements.quantityInput.value);
+                    const existingItem = cart.find(item => item.id === product.id);
+                    if (existingItem) {
+                        existingItem.quantity += quantity;
+                    } else {
+                        cart.push({ ...product, quantity });
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    elements.productModal.classList.add('hidden');
+                    showToast(`${product.title.substring(0, 30)}... added to cart!`);
+                }
+            });
+
+            // Display categories
+            const displayCategories = (categories) => {
+                elements.categoriesContainer.innerHTML = '';
+                if (categories.length === 0) {
+                    elements.categoryErrorMessage.classList.remove('hidden');
+                    elements.categoryErrorMessage.textContent = 'Tidak ada kategori tersedia.';
+                    return;
+                }
+                categories.forEach(category => {
+                    const button = document.createElement('button');
+                    button.className = 'px-3 py-1 bg-primary text-white rounded-sm text-sm hover:bg-orange-600 transition';
+                    button.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                    button.addEventListener('click', () => {
+                        const filteredProducts = products.filter(p => p.category === category);
+                        displayProducts(filteredProducts);
+                    });
+                    elements.categoriesContainer.appendChild(button);
+                });
+            };
+
+            // Display products
+            const displayProducts = (productsToShow) => {
+                elements.productGrid.innerHTML = '';
+                if (productsToShow.length === 0) {
+                    elements.errorMessage.classList.remove('hidden');
+                    elements.errorMessage.textContent = 'Tidak ada produk tersedia.';
+                    return;
+                }
+                productsToShow.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow cursor-pointer';
+                    card.innerHTML = `
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-contain mb-3">
+                        <h3 class="text-sm font-medium text-gray-800">${product.title.substring(0, 30)}...</h3>
+                        <p class="text-primary font-bold text-sm">$${product.price.toFixed(2)}</p>
+                    `;
+                    card.addEventListener('click', () => showProductModal(product));
+                    elements.productGrid.appendChild(card);
+                });
+            };
+
+            // Search functionality
+            elements.searchInput.addEventListener('input', () => {
+                const searchTerm = elements.searchInput.value.toLowerCase();
+                const filteredProducts = products.filter(p => p.title.toLowerCase().includes(searchTerm));
+                displayProducts(filteredProducts);
+            });
+
+            // Fetch data from API
+            const fetchData = async () => {
+                try {
+                    const categoryResponse = await fetch('https://fakestoreapi.com/products/categories');
+                    if (!categoryResponse.ok) throw new Error('Gagal mengambil kategori');
+                    const categories = await categoryResponse.json();
+                    displayCategories(categories);
+
+                    const productResponse = await fetch('https://fakestoreapi.com/products');
+                    if (!productResponse.ok) throw new Error('Gagal mengambil produk');
+                    products = await productResponse.json();
+                    displayProducts(products);
+                } catch (error) {
+                    elements.categoryErrorMessage.classList.remove('hidden');
+                    elements.categoryErrorMessage.textContent = 'Gagal memuat kategori.';
+                    elements.errorMessage.classList.remove('hidden');
+                    elements.errorMessage.textContent = 'Gagal memuat produk.';
+                }
+            };
+
+            updateAuthLinks();
+            updateCartCount();
+            fetchData();
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00'
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+```

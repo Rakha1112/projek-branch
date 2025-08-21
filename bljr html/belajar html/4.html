@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rakha</title>
+    <link rel="stylesheet" href="1.CSSh1>
+
+        <form action="" id="formdata" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Product Information</legend>
+
+                <label for="id_produk">Kode Produk</label>
+                <input type="text" name="id_produk" id="id_produk" placeholder="MD-001" readonly>
+
+                <label for="nama_produk">Nama Produk</label>
+                <input type="text" name="nama_produk" id="nama_produk" placeholder="Nama Produk" required>
+
+                <label for="harga_produk">Harga Produk</label>
+                <input type="number" name="harga_produk" id="harga_produk" placeholder="Harga Produk" required min="0" step="0.01">
+
+                <label for="satuan_produk">Masukan Satuan:</label>
+                <select name="satuan_produk" id="satuan_produk" required>
+                    <option value="" disabled selected>Pilih Satuan</option>
+                    <option value="Ayam KFC">Makan Besar</option>
+                    <option value="Burger">Chiki</option>
+                    <option value="Ayam Box">Makan Ringan</option>
+                    <option value="Sup Ayam">s444
+                      
+                    </option>
+                </select>
+                
+                <label for="kategori_produk">Kategori:</label>
+                <select name="kategori_produk" id="kategori_produk" required>
+                    <option value="" disabled selected>Pilih Kategori</option>
+                    <option value="Es Jeruk">Jus</option>
+                    <option value="Moca float">Kopi</option>
+                    <option value="Kopi">Teh</option>
+                    <option value="Nasi kuning">Air Soda</option>
+                    <option value="Nasi goreng">Float</option>
+                </select>
+
+                <label for="stock_produk">Stock Produk</label>
+                <input type="number" name="stock_produk" id="stock_produk" placeholder="Stock Produk" required min="0">
+
+                <label for="gambar_produk">Link Gambar Produk</label>
+                <input type="url" name="gambar_produk" id="gambar_produk" placeholder="https://example.com/image.jpg" required>
+
+                <label for="stock_awal">Stock Awal</label>
+                <input type="number" name="stock_awal" id="stock_awal" placeholder="">
+
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+
+        <h2>Product List</h2>
+        <table style="width: 100%;" aria-labelledby="product-list">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode Produk</th>
+                    <th>Nama Produk</th>
+                    <th>Harga Produk</th>
+                    <th>Satuan Produk</th>
+                    <th>Kategori</th>
+                    <th>Stock Produk</th>
+                    <th>Gambar Produk</th>
+                    <th>Stock Awal</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+            </tbody>
+        </table>
+    </div>
+<script src="2.js"></script>
+</body>
+</html>   

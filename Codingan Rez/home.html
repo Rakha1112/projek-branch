@@ -1,0 +1,69 @@
+<!-- homepage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="home.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600">E-Commerce</h1>
+    <div class="flex gap-4 items-center">
+      <input type="text" id="searchBar" placeholder="Cari produk..."
+             class="border p-2 rounded-md focus:outline-none"/>
+      <span id="profile" class="font-semibold text-gray-700">User</span>
+      <button id="cartBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-md">
+        Keranjang
+      </button>
+    </div>
+  </nav>
+
+  <!-- Banner CTA -->
+  <section class="bg-blue-500 text-white p-10 text-center mt-4">
+    <h2 class="text-3xl font-bold">Temukan Produk Impianmu!</h2>
+    <p class="mt-2 text-lg">Belanja hemat, kualitas hebat!</p>
+  </section>
+
+  <!-- Daftar Produk -->
+  <section class="p-6">
+    <h3 class="text-2xl font-bold mb-4">Semua Produk</h3>
+    <div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- Modal Detail Produk -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg w-96 relative">
+      <button id="closeModal" class="absolute top-2 right-2 text-red-500 text-xl">×</button>
+      <img id="modalImage" class="h-48 mx-auto object-contain mb-4" />
+      <h3 id="modalTitle" class="text-lg font-bold mb-2"></h3>
+      <p id="modalDescription" class="text-sm text-gray-600 mb-2"></p>
+      <p id="modalPrice" class="text-green-600 font-semibold text-lg"></p>
+      <button id="addToCartBtn" class="mt-4 bg-green-500 text-white px-4 py-2 rounded w-full">
+        Tambah ke Keranjang
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal Keranjang -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg w-full max-w-2xl relative">
+      <button id="closeCartModal" class="absolute top-2 right-2 text-red-500 text-xl">×</button>
+      <h2 class="text-xl font-bold mb-4">Keranjang Belanja</h2>
+      <div id="cartItems" class="mb-4"></div>
+      <div class="flex justify-between items-center">
+        <span class="font-semibold text-lg">Total: <span id="cartTotal">$0</span></span>
+        <button id="checkoutBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+homepage.html

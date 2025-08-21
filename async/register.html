@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA - Register</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body class="min-h-screen flex flex-col font-['Inter'] bg-white">
+    <header class="bg-white shadow-sm fixed top-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-12">
+                    <a href="Landing.html" class="font-['Pacifico'] text-2xl text-primary">Satria</a>
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="Search..." id="search-input"
+                               class="w-80 pl-10 pr-4 py-2 bg-secondary rounded-full text-sm border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <select id="category-filter" class="px-3 py-2 text-gray-600 hover:text-primary text-sm rounded-md bg-secondary border border-gray-300 focus:ring-2 focus:ring-primary">
+                            <option value="">All Categories</option>
+                        </select>
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary md:hidden" aria-label="Search">
+                        <i class="ri-search-line text-xl"></i>
+                    </button>
+                    <a href="keranjang.html" class="relative w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary" aria-label="View cart">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white rounded-full text-xs font-medium px-1.5 py-0.5 min-w-[20px] text-center hidden">0</span>
+                    </a>
+                    <button id="hamburger-button" class="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary md:hidden" aria-label="Toggle menu">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="hamburger-menu" class="hidden md:hidden bg-white shadow-md mt-4 rounded-lg">
+                <div class="flex flex-col p-4 space-y-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search..." id="mobile-search-input"
+                               class="w-full pl-10 pr-4 py-2 bg-secondary rounded-full text-sm border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <select id="mobile-category-filter" class="w-full px-3 py-2 text-gray-600 hover:text-primary text-sm rounded-md bg-secondary border border-gray-300 focus:ring-2 focus:ring-primary">
+                            <option value="">All Categories</option>
+                        </select>
+                        <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </div>
+                    <a href="Landing.html" class="text-gray-600 hover:text-primary text-sm font-medium">Home</a>
+                    <a href="keranjang.html" class="text-gray-600 hover:text-primary text-sm font-medium">Cart</a>
+                    <a href="login.html" class="text-gray-600 hover:text-primary text-sm font-medium">Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 mt-16 flex-grow flex items-center justify-center">
+        <div class="w-full max-w-md p-8 bg-white rounded-md shadow-md transition-transform transition-shadow duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 animate-fade-in">
+            <h2 class="text-2xl font-bold mb-6 text-accent text-center">Register</h2>
+            <form id="register-form" class="space-y-6">
+                <div id="error-message" class="hidden text-red-600 text-sm text-center animate-slide-up"></div>
+                <div>
+                    <label for="name" class="block text-sm font-medium text-accent mb-1">Nama</label>
+                    <div class="relative">
+                        <input type="text" id="name" placeholder="Masukkan nama"
+                               class="w-full pl-10 pr-4 py-2 bg-secondary rounded-md text-sm border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-user-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-accent mb-1">Email</label>
+                    <div class="relative">
+                        <input type="email" id="email" placeholder="Masukkan email"
+                               class="w-full pl-10 pr-4 py-2 bg-secondary rounded-md text-sm border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-accent mb-1">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password" placeholder="Masukkan password"
+                               class="w-full pl-10 pr-4 py-2 bg-secondary rounded-md text-sm border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-lock-line"></i>
+                        </div>
+                    </div>
+                </div>
+              <a> <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button hover:bg-orange-600 hover:animate-pulse transition-colors w-full text-sm font-medium" aria-label="Register">Register</button></a>
+                <p class="text-center text-sm text-gray-600">Sudah punya akun? <a href="login.html" class="text-primary hover:underline">Login di sini</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-accent text-white py-6 text-center">
+        <p class="text-sm">Create Satria</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = {
+                registerForm: document.querySelector('#register-form'),
+                nameInput: document.querySelector('#name'),
+                emailInput: document.querySelector('#email'),
+                passwordInput: document.querySelector('#password'),
+                errorMessage: document.querySelector('#error-message'),
+                cartCount: document.querySelector('#cart-count'),
+                hamburgerButton: document.querySelector('#hamburger-button'),
+                hamburgerMenu: document.querySelector('#hamburger-menu'),
+                searchInput: document.querySelector('#search-input'),
+                mobileSearchInput: document.querySelector('#mobile-search-input'),
+                categoryFilter: document.querySelector('#category-filter'),
+                mobileCategoryFilter: document.querySelector('#mobile-category-filter')
+            };
+
+            // Update cart count
+            const updateCartCount = () => {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                elements.cartCount.textContent = totalItems;
+                elements.cartCount.classList.toggle('hidden', totalItems === 0);
+            };
+
+            // Hamburger menu toggle
+            elements.hamburgerButton?.addEventListener('click', () => {
+                elements.hamburgerMenu.classList.toggle('hidden');
+                const isOpen = !elements.hamburgerMenu.classList.contains('hidden');
+                elements.hamburgerButton.innerHTML = `<i class="ri-${isOpen ? 'close' : 'menu'}-line text-xl"></i>`;
+            });
+
+            // Form submission
+            elements.registerForm?.addEventListener('submit', (event) => {
+                event.preventDefault();
+                elements.errorMessage.classList.add('hidden');
+
+                const name = elements.nameInput.value.trim();
+                const email = elements.emailInput.value.trim();
+                const password = elements.passwordInput.value.trim();
+
+                // Validasi input
+                if (!name || !email || !password) {
+                    elements.errorMessage.textContent = 'Harap isi semua kolom.';
+                    elements.errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                // Validasi format email sederhana
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    elements.errorMessage.textContent = 'Format email tidak valid.';
+                    elements.errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                // Simulasi registrasi
+                const user = {
+                    isAuthenticated: true,
+                    name,
+                    email
+                };
+                localStorage.setItem('user', JSON.stringify(user));
+
+                // Simpan nama untuk profil (opsional, untuk konsistensi dengan profil.html jika diperlukan)
+                const profile = JSON.parse(localStorage.getItem('profile')) || {};
+                profile.name = name;
+                localStorage.setItem('profile', JSON.stringify(profile));
+
+                const feedback = document.createElement('div');
+                feedback.className = 'fixed bottom-4 right-4 bg-primary text-white px-4 py-2 rounded-md text-sm animate-slide-up';
+                feedback.textContent = 'Registrasi berhasil! Mengalihkan...';
+                document.body.appendChild(feedback);
+                setTimeout(() => {
+                    feedback.remove();
+                    window.location.href = 'home.html';
+                }, 2000);
+            });
+
+            // Search functionality (placeholder, tidak aktif di halaman register)
+            const setupSearch = (input) => {
+                if (input) {
+                    input.addEventListener('focus', () => {
+                        input.parentElement.classList.add('ring-2', 'ring-primary', 'ring-opacity-50');
+                    });
+                    input.addEventListener('blur', () => {
+                        input.parentElement.classList.remove('ring-2', 'ring-primary', 'ring-opacity-50');
+                    });
+                }
+            };
+            setupSearch(elements.searchInput);
+            setupSearch(elements.mobileSearchInput);
+
+            // Fetch categories for filter (placeholder, tidak aktif di halaman register)
+            const fetchCategories = async () => {
+                try {
+                    const response = await fetch('https://fakestoreapi.com/products/categories');
+                    if (!response.ok) throw new Error('Gagal mengambil kategori');
+                    const categories = await response.json();
+                    const categoryOptions = categories.map(category => 
+                        `<option value="${category}">${category.charAt(0).toUpperCase() + category.slice(1)}</option>`
+                    ).join('');
+                    elements.categoryFilter?.insertAdjacentHTML('beforeend', categoryOptions);
+                    elements.mobileCategoryFilter?.insertAdjacentHTML('beforeend', categoryOptions);
+                } catch (error) {
+                    console.error('Error fetching categories:', error);
+                }
+            };
+
+            // Initialize
+            updateCartCount();
+            fetchCategories();
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        secondary: '#f8f8f8',
+                        accent: '#1f2937'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-in-out',
+                        'pulse': 'pulse 0.2s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-in-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

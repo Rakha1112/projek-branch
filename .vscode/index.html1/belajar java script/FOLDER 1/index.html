@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="Rakha"></h1>
+</body>
+<script>
+    var pilihan = prompt("Pilih angka  \n 1. Pengurangan \n 2. Penjumlahan \n 3. Perkalian");
+    var Rakha = document.getElementById("Rakha");
+    
+    var angka, angka2, hasil;
+    
+    if(pilihan == 1){
+        angka = parseFloat(prompt("Masukkan angka pertama"));
+        angka2 = parseFloat(prompt("Masukkan angka kedua"));
+        hasil = angka - angka2;
+        Rakha.innerHTML = hasil;
+    }
+    else if(pilihan == 2){
+        angka = parseFloat(prompt("Masukkan angka pertama"));
+        angka2 = parseFloat(prompt("Masukkan angka kedua"));
+        hasil = angka + angka2;
+        Rakha.innerHTML = hasil;
+    }
+    else if(pilihan == 3){
+        angka = parseFloat(prompt("Masukkan angka pertama"));
+        angka2 = parseFloat(prompt("Masukkan angka kedua"));
+        hasil = angka * angka2;
+        Rakha.innerHTML = hasil;
+    }
+    else{
+        Rakha.innerHTML = "Pilihan anda salah!";
+    }
+</script>
+</html>

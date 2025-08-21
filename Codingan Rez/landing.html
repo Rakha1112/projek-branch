@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Datang di E-Commerce Kami!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif; 
+        background-color: #f0f2f5;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen">
+    <div
+      class="container mx-auto p-4 md:p-8 max-w-4xl bg-white shadow-lg rounded-xl"
+    >
+      <!-- Bagian Promosi (Hero Section) -->
+      <section
+        class="text-center mb-10 p-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl shadow-md"
+      >
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
+          Temukan Gaya Anda, Belanja Sekarang!
+        </h1>
+        <p class="text-lg md:text-xl mb-6 opacity-90 animate-slide-up">
+          Koleksi terbaru dengan diskon menarik. Jangan lewatkan penawaran
+          spesial!
+        </p>
+        <button
+          id="shopNowBtn"
+          class="bg-white text-indigo-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out transform"
+        >
+          Belanja Sekarang
+        </button>
+      </section>
+
+      <!-- Formulir Autentikasi (Login/Register) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Formulir Login -->
+        <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200">
+          < class="text-3xl font-bold text-gray-800 mb-6 text-center">
+            Masuk
+          </h2>
+          <form id="loginForm" class="space-y-5">
+            <div>
+              <label
+                for="loginUsername"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Nama Pengguna</label
+              >
+              <input
+                type="text"
+                id="loginUsername"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Masukkan nama pengguna"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="loginPassword"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Kata Sandi</label
+              >
+              <input
+                type="password"
+                id="loginPassword"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Masukkan kata sandi"
+                required
+              />
+            </div>
+          <a>  <button
+              type="submit"
+              class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200"
+            >
+              Masuk
+            </button></a>
+            <p
+              id="loginMessage"
+              class="text-red-500 text-sm mt-2 text-center"
+            ></p>
+          </form>
+        </div>
+
+        <!-- Formulir Register -->
+        <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+            Daftar
+          </h2>
+          <form id="registerForm" class="space-y-5">
+            <div>
+              <label
+                for="registerUsername"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Nama Pengguna</label
+              >
+              <input
+                type="text"
+                id="registerUsername"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Pilih nama pengguna"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="registerPassword"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Kata Sandi</label
+              >
+              <input
+                type="password"
+                id="registerPassword"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Buat kata sandi"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-200"
+            >
+              Daftar
+            </button>
+            <p
+              id="registerMessage"
+              class="text-red-500 text-sm mt-2 text-center"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="landing.js"></script>
+  </body>
+</html>
+
+
+ini landingpage.html

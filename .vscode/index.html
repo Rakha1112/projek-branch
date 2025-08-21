@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMaster Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="kotaklogin">
+
+            <form action="" method="post" id="biodata-form">
+                <h2 align="center">Sign Up</h2>
+
+                <label for="username"><b>username</b></label>
+                    <input type="username" placeholder="Masukan username"id="username" name="username" required>
+
+                <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="Masukan email"id="email" name="email" required>
+
+                <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Password" id="password" name="password" required>
+
+                <label for="password1"><b>Confirm Password</b></label>
+                    <input type="password" placeholder="Confirm Password" id="password1" name="password1" required>
+                    <p>By clicking <u>Sign up</u>, you are agreeing to the <b><u>Terms of Use</u></b> including the arbitration clause and you are acknowledging the <b><u>Privacy Policy.</u></b></p>
+                    <button type="submit" class="masuk">Sign Up</button>
+                    <p>Already have an account? <a href="login.html">Log In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-Output">
+        <ul>
+            <li id="username-output"></li>
+            <li id="password-output"></li>
+        </ul>
+    </div>
+    <script src="funtion.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satria - Profil</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col font-['Inter'] bg-gray-100">
+    <header class="bg-white shadow fixed top-0 w-full z-10">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="https://via.placeholder.com/40" alt="Satria Logo" class="w-10 h-10">
+                <span class="text-xl font-bold text-primary">Satria</span>
+            </a>
+            <nav class="flex items-center space-x-4">
+                <a href="index.html" class="text-gray-600 hover:text-primary text-sm transition-colors duration-200">Home</a>
+                <div class="relative">
+                    <a href="keranjang.html" class="text-gray-600 hover:text-primary text-sm flex items-center transition-colors duration-200">
+                        🛒 Keranjang
+                        <span id="cartCount" class="absolute -top-2 -right-4 bg-primary text-white rounded-full text-xs px-2 py-0.5 hidden">0</span>
+                    </a>
+                </div>
+                <button id="logoutButton" class="text-gray-600 hover:text-primary text-sm flex items-center gap-1 transition-colors duration-200">
+                    <span>🧑</span> Logout
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pt-20 pb-12 flex-grow flex items-center justify-center">
+        <div class="w-full max-w-lg p-8 bg-white rounded-xl shadow-lg border border-primary/20 transform transition-all duration-300 hover:scale-105 animate-fade-in">
+            <div class="flex flex-col items-center gap-6">
+                <div class="w-36 h-36 rounded-full bg-gradient-to-r from-primary/80 to-orange-500 flex items-center justify-center text-6xl text-white shadow-lg ring-4 ring-primary/10">
+                    🧑
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900">Profil Pengguna</h2>
+                <div class="w-full text-center space-y-3">
+                    <p class="text-xl font-semibold text-gray-900" id="userName">Nama Pengguna</p>
+                    <p class="text-lg text-gray-700" id="userEmail">email@contoh.com</p>
+                    <hr class="border-gray-200">
+                    <p class="text-sm text-gray-500" id="userJoined">Bergabung: -</p>
+                </div>
+                <button id="logoutProfileButton" class="bg-primary text-white px-8 py-3 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-orange-600 hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-200">
+                    <span>🚪</span> Logout
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <p class="text-sm">© 2025 <span class="text-primary">Satria</span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user')) || {};
+            const elements = {
+                userName: document.querySelector('#userName'),
+                userEmail: document.querySelector('#userEmail'),
+                userJoined: document.querySelector('#userJoined'),
+                logoutButton: document.querySelector('#logoutButton'),
+                logoutProfileButton: document.querySelector('#logoutProfileButton'),
+                cartCount: document.querySelector('#cartCount')
+            };
+
+        
+
+            // Display user information
+            elements.userEmail.textContent = user.email || 'Tidak ada email';
+            elements.userName.textContent = user.name || 'Pengguna';
+            elements.userJoined.textContent = `Bergabung: ${user.joined || 'Tidak diketahui'}`;
+
+            // Update cart count
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const updateCartCount = () => {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                elements.cartCount.textContent = totalItems;
+                elements.cartCount.classList.toggle('hidden', totalItems === 0);
+            };
+
+            // Logout functionality
+            const handleLogout = () => {
+                localStorage.removeItem('user');
+                localStorage.removeItem('cart');
+                window.location.href = 'landing.html';
+            };
+
+            elements.logoutButton.addEventListener('click', handleLogout);
+            elements.logoutProfileButton.addEventListener('click', handleLogout);
+
+            updateCartCount();
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00'
+                    }
+                }
+            },
+            plugins: [
+                function({ addUtilities }) {
+                    addUtilities({
+                        '.animate-fade-in': {
+                            animation: 'fadeIn 0.7s ease-out'
+                        },
+                        '@keyframes fadeIn': {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    });
+                }
+            ]
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA - Login</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        secondary: '#f8f8f8',
+                        accent: '#1f2937'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-in-out',
+                        'pulse': 'pulse 0.2s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-in-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .login-container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fade-in 0.3s ease-in-out;
+        }
+
+        .login-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-container:focus-within {
+            outline: 2px solid #FF6B00;
+            outline-offset: 2px;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #FF6B00;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+        }
+
+        .login-btn:hover {
+            animation: pulse 0.2s ease-in-out;
+        }
+
+        .error-message {
+            animation: slideUp 0.3s ease-in-out;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #FF6B00;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 9999px;
+            min-width: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-secondary">
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="font-['Pacifico'] text-2xl text-primary hover:opacity-90 transition-opacity">Satria</a>
+                <div class="flex items-center space-x-6">
+                    <a href="register.html" class="text-gray-600 hover:text-primary text-sm font-medium transition-colors">Register</a>
+                    <a href="keranjang.html" class="relative w-10 h-10 flex items-center justify-center text-gray-600 hover:text-primary transition-colors" aria-label="View cart">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span id="cart-count" class="cart-badge hidden">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8 flex items-center justify-center mt-16">
+        <div class="login-container w-full max-w-md p-8">
+            <h2 class="text-2xl font-bold mb-6 text-accent text-center">Welcome Back!</h2>
+            <p class="text-gray-600 text-center mb-8">Please login to your account to continue</p>
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-600 mb-1">Email Address</label>
+                    <div class="relative">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required
+                               class="input-field w-full pl-10 pr-4 py-3 bg-secondary rounded-md text-sm border border-gray-300 focus:border-primary transition-colors">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-600 mb-1">Password</label>
+                    <div class="relative">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required
+                               class="input-field w-full pl-10 pr-4 py-3 bg-secondary rounded-md text-sm border border-gray-300 focus:border-primary transition-colors">
+                        <div class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-lock-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-600">Remember me</label>
+                    </div>
+                    <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+                </div>
+              <a href="home.html">  <button type="submit" class="login-btn bg-primary text-white px-8 py-3 rounded-button hover:bg-orange-600 transition-colors w-full text-sm font-medium text-center block" aria-label="Login">Sign In</button></a>
+            </form>
+            <div id="error-message" class="hidden mt-4 p-3 bg-red-50 text-red-600 text-sm rounded-md"></div>
+            <p class="text-center text-sm text-gray-600 mt-6">
+                Don't have an account? <a href="register.html" class="text-primary hover:underline font-medium">Create an account</a>
+            </p>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.querySelector('#login-form');
+            const errorMessage = document.querySelector('#error-message');
+            const cartCount = document.querySelector('#cart-count');
+
+            // Update cart count from localStorage
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                cartCount.classList.toggle('hidden', totalItems === 0);
+            }
+
+            // Basic form validation
+            loginForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const email = document.querySelector('#email').value;
+                const password = document.querySelector('#password').value;
+
+                // Simple client-side validation
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    errorMessage.textContent = 'Please enter a valid email address.';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                if (!password || password.length < 6) {
+                    errorMessage.textContent = 'Password must be at least 6 characters long.';
+                    errorMessage.classList.remove('hidden');
+                    return;
+                }
+
+                // Clear error message if validation passes
+                errorMessage.classList.add('hidden');
+
+                // Simulate login (replace with actual authentication logic)
+                console.log('Login attempt:', { email, password });
+                
+                // Store user info in localStorage (you can modify this based on your needs)
+                localStorage.setItem('user', JSON.stringify({
+                    email: email,
+                    isLoggedIn: true,
+                    loginTime: new Date().toISOString()
+                }));
+
+                // Redirect to home page
+                window.location.href = 'home.html';
+            });
+
+            // Input focus/blur effects
+            const inputs = document.querySelectorAll('.input-field');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function () {
+                    this.parentElement.classList.add('ring-2', 'ring-primary', 'ring-opacity-50');
+                });
+                input.addEventListener('blur', function () {
+                    this.parentElement.classList.remove('ring-2', 'ring-primary', 'ring-opacity-50');
+                });
+            });
+
+            // Initialize cart count
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

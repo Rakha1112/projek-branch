@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <section class="profile">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/150" alt="Profile Image">
+                </div>
+                <div class="profile-info">
+                    <h1>John Doe</h1>
+                    <h2>Full Stack Developer</h2>
+                    <p>Passionate developer with 5+ years of experience in web development</p>
+                </div>
+            </div>
+            <div class="profile-contact">
+                <a href="mailto:john@example.com">Email</a>
+                <a href="https://linkedin.com">LinkedIn</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card" data-skill="frontend">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5/CSS3</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Vue.js</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-skill="backend">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>PHP</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-skill="database">
+                    <h3>Database</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>PostgreSQL</li>
+                        <li>Redis</li>
+                    </ul>
+                </div>
+                <div class="skill-card" data-skill="tools">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>AWS</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>E-commerce Platform</h3>
+                        <div class="project-links">
+                            <a href="#" class="demo-link">Live Demo</a>
+                            <a href="#" class="code-link">Code</a>
+                        </div>
+                    </div>
+                    <p>Full-stack e-commerce solution with payment integration</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Task Manager</h3>
+                        <div class="project-links">
+                            <a href="#" class="demo-link">Live Demo</a>
+                            <a href="#" class="code-link">Code</a>
+                        </div>
+                    </div>
+                    <p>Real-time task management application</p>
+                    <div class="project-tech">
+                        <span>Vue.js</span>
+                        <span>Firebase</span>
+                        <span>Tailwind</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Weather App</h3>
+                        <div class="project-links">
+                            <a href="#" class="demo-link">Live Demo</a>
+                            <a href="#" class="code-link">Code</a>
+                        </div>
+                    </div>
+                    <p>Weather forecast application with location tracking</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>Weather API</span>
+                        <span>CSS3</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Suggestion Box -->
+        <section class="suggestion">
+            <h2 class="section-title">Leave a Suggestion</h2>
+            <form class="suggestion-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Suggestion</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
